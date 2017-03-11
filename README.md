@@ -12,3 +12,7 @@
 ## Credit
 
 ES6 Template Literals and their static unique feature.
+
+## Live
+
+You can [test this project](https://webreflection.github.io/hypermvc/index.html) here.

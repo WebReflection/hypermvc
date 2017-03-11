@@ -1,2 +1,0 @@
-# hypermvc
-hyperHTML for TodoMVC

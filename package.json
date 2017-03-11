@@ -1,12 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "force": "for f in node_modules/todomvc-app-css/index.css node_modules/todomvc-common/base.js node_modules/todomvc-common/base.css node_modules/hyperhtml/min.js; do git add --force $f; done",
-    "compile": "npm run bundle && npm run babelify && npm run browserify && rm -rf es2015",
-    "bundle": "mkdir -p dist; echo '// jscs:disable' > dist/bundle.js",
+    "build": "mkdir -p dist; npm run hyperhtml-add; npm run babelify; npm run bundle; rm -rf es2015; npm run hyperhtml-remove",
+    "hyperhtml-add": "mkdir -p js/lib; cp node_modules/hyperhtml/hyperhtml.js js/lib; sed -i 's/try { module.exports = hyperHTML; } catch(o_O) {}/export default hyperHTML;/' js/lib/hyperhtml.js",
+    "hyperhtml-remove": "rm -rf js/lib",
+    "bundle": "echo '// jscs:disable' > dist/bundle.js; browserify ./es2015/**.js | uglifyjs -mc warnings=false >> dist/bundle.js",
     "babelify": "babel ./js --out-dir ./es2015 --presets=es2015",
-    "browserify": "browserify ./es2015/**.js | uglifyjs -mc warnings=false >> dist/bundle.js",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "hyperhtml": "^0.7.2",

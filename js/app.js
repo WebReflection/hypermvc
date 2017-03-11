@@ -1,3 +1,4 @@
+import hyperHTML from './lib/hyperhtml';
 import controller from './controllers/todo';
 import storage from './models/storage';
 import updateHeader from './views/header';

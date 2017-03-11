@@ -1,4 +1,4 @@
-
+import hyperHTML from '../lib/hyperhtml';
 import controller from '../controllers/todo';
 
 export default (render, todos) => render`

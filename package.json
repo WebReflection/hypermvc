@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "force": "for f in node_modules/todomvc-app-css/index.css node_modules/todomvc-common/base.js node_modules/todomvc-common/base.css node_modules/hyperhtml/min.js; do git add --force $f; done",
     "compile": "npm run bundle && npm run babelify && npm run browserify && rm -rf es2015",
     "bundle": "mkdir -p dist; echo '// jscs:disable' > dist/bundle.js",
     "babelify": "babel ./js --out-dir ./es2015 --presets=es2015",

@@ -3,7 +3,7 @@
   "scripts": {
     "base": "cp node_modules/todomvc-app-css/index.css dist; cp node_modules/todomvc-common/base.{js,css} dist;",
     "build": "mkdir -p dist; npm run hyperhtml-add; npm run babelify; npm run bundle; rm -rf es2015; npm run hyperhtml-remove; npm run base",
-    "hyperhtml-add": "mkdir -p js/lib; cp node_modules/hyperhtml/hyperhtml.js js/lib; sed -i 's/try { module.exports = hyperHTML; } catch(o_O) {}/export default hyperHTML;/' js/lib/hyperhtml.js",
+    "hyperhtml-add": "mkdir -p js/lib; cp node_modules/hyperhtml/hyperhtml.js js/lib; sed -i.bak 's/try { module.exports = hyperHTML; } catch(o_O) {}/export default hyperHTML;/' js/lib/hyperhtml.js",
     "hyperhtml-remove": "rm -rf js/lib",
     "bundle": "echo '// jscs:disable' > dist/bundle.js; browserify ./es2015/**.js | uglifyjs -mc warnings=false >> dist/bundle.js",
     "babelify": "babel ./js --out-dir ./es2015 --presets=es2015",

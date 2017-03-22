@@ -9,9 +9,9 @@ export default (render, todos) => render`
 			onclick="${controller.toggleAll}"
 			checked="${todos.every(todo => todo.completed)}">
 		<label for="toggle-all">Mark all as complete</label>
-		<ul class="todo-list">${todos.map((todo, i) => hyperHTML.wire(todo)`
+		<ul class="todo-list">${todos.map(todo => hyperHTML.wire(todo)`
 			<li
-				data-index="${i}"
+				data-index="${controller.items.indexOf(todo)}"
 				class="${todo.completed ? 'completed' : ''}"
 			>
 				<div class="view">

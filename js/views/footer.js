@@ -1,7 +1,7 @@
 
 import controller from '../controllers/todo';
 
-const selected = {true: 'selected', false: ''};
+const selected = (hash, curr) => hash === curr ? 'selected' : '';
 
 export default (render, todos) => {
 
@@ -15,9 +15,9 @@ export default (render, todos) => {
 			<strong> ${left} </strong> item${~-left ? 's' : ''} left
 		</span>
 		<ul class="filters">
-			<li><a class="${selected[hash === 'all']}" href="#/">All</a></li>
-			<li><a class="${selected[hash === 'active']}" href="#/active">Active</a></li>
-			<li><a class="${selected[hash === 'completed']}" href="#/completed">Completed</a></li>
+			<li><a class="${selected(hash, 'all')}" href="#/">All</a></li>
+			<li><a class="${selected(hash, 'active')}" href="#/active">Active</a></li>
+			<li><a class="${selected(hash, 'completed')}" href="#/completed">Completed</a></li>
 		</ul>
 		<button
 			class="clear-completed"

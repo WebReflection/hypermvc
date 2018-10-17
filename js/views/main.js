@@ -47,6 +47,6 @@ function dblclick2Edit() {
 }
 
 function blur2Save(event) {
-	this.closest('li').classList.remove('edit');
+	this.closest('li').classList.remove('editing');
 	controller.edit(event);
 }

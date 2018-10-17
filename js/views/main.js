@@ -35,6 +35,9 @@ export default (render, todos) => render`
 							this.value = todo.title;
 							this.blur();
 						}
+						if (event.keyCode === controller.ENTER_KEY) {
+							this.blur();
+						}
 					}}">
 			</li>
 	`)}</ul>
@@ -47,6 +50,6 @@ function dblclick2Edit() {
 }
 
 function blur2Save(event) {
-	this.closest('li').classList.remove('edit');
+	this.closest('li').classList.remove('editing');
 	controller.edit(event);
 }

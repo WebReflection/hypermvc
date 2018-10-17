@@ -35,6 +35,9 @@ export default (render, todos) => render`
 							this.value = todo.title;
 							this.blur();
 						}
+						if (event.keyCode === controller.ENTER_KEY) {
+							this.blur();
+						}
 					}}">
 			</li>
 	`)}</ul>
